@@ -4,7 +4,8 @@ Using the Console
 The JavaScript Console provides two primary functions for developers  testing
 web pages and applications:
 
-* [Basic operation]	* [Opening the Console](#opening_the_console)
+* [Basic operation](#basic_operation)
+	* [Opening the Console](#opening_the_console)
 	* [Clearing the console history](#clearing_the_console_history)
 	* [Console settings](#console_settings)
 * [Using the Console API](#using_the_console_api)
