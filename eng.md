@@ -4,6 +4,30 @@ Using the Console
 The JavaScript Console provides two primary functions for developers  testing
 web pages and applications:
 
+* [Basic operation](#basic_operation)
+	* [Opening the Console](#opening_the_console)
+	* [Clearing the console history](#clearing_the_console_history)
+	* [Console settings](#console_settings)
+* [Using the Console API](#using_the_console_api)
+	* [Writing to the console](#writing_to_the_console)
+	* [Errors and warnings](#errors_and_warnings)
+	* [Assertions](#assertions)
+	* [Filtering console output](#filtering_console_output)
+	* [Grouping output](#grouping_output)
+	* [String substitution and formatting](#string_substitution_and_formatting)
+	* [Formatting DOM elements as JavaScript objects](#formatting_dom_elements_as_javascript_objects)
+	* [Styling console output with CSS](#styling_console_output_with_css)
+	* [Measuring how long something takes](#measuring_how_long_something_takes)
+	* [Marking the Timeline](#marking_the_timeline)
+	* [Setting breakpoints in JavaScript](#setting_breakpoints_in_javascript)
+* [Using the Command Line API](#using_the_command_line_api)
+	* [Evaluating expressions](#evaluating_expressions)
+	* [Selecting elements](#selecting_elements)
+	* [Inspecting DOM elements and JavaScript heap objects](#inspecting_dom_elements_and_javascript_heap_objects)
+	* [Accessing recently selected elements and objects](#accessing_recently_selected_elements_and_objects)
+	* [Monitoring events](#monitoring_events)
+	* [Controlling the CPU profiler](#controlling_the_cpu_profiler)
+
 * A place to log diagnostic information using methods provided by the [Console
 API][1], such as [console.log()][2], or [console.profile()][3].
 * A shell prompt where you can enter commands and interact with the document and
@@ -16,9 +40,9 @@ can also browse the [Console API][7] and [Command Line API][8] reference guides.
 
 
 
-## Basic operation ##
+## Basic operation {#basic_operation} ##
 
-### Opening the Console ###
+### Opening the Console {#opening_the_console} ###
 
 The JavaScript Console is available in two modes within Chrome DevTools: the
 primary Console tab, or as a split-view you can display while on another tab
@@ -39,7 +63,7 @@ split-view is shown with the Elements panel.
 
 ![Console split-view][10]
 
-### Clearing the console history ###
+### Clearing the console history {#clearing_the_console_history} ###
 
 To clear the console's history, do one of the following:
 
@@ -54,7 +78,7 @@ By default, the console history is cleared when you navigate to another page.
 You can change this behavior by enabling **Preserve log upon navigation** in the
 Console area of the Settings dialog (see [Console preferences][13]).
 
-### Console settings ###
+### Console settings {#console_settings} ###
 
 The Console has two global settings you can modify in the General tab of the
 DevTools Settings dialog:
@@ -71,7 +95,7 @@ bring up the context menu.
 ![Console panel view][14]
 
 
-## Using the Console API ##
+## Using the Console API {#using_the_console_api} ##
 
 The Console API is collection of methods provided by the global `console` object
 defined by DevTools. One of the API's main purposes is to [log information][15]
@@ -79,7 +103,7 @@ defined by DevTools. One of the API's main purposes is to [log information][15]
 while your application is running. You can also group output visually in the
 console to reduce visual clutter.
 
-### Writing to the console ###
+### Writing to the console {#writing_to_the_console} ###
 
 The [console.log()][16] method takes one or more expressions as parameters and
 writes their current values to the console. For example:
@@ -96,7 +120,7 @@ together in a space-delimited line.
 
 ![Console log output][18]
 
-### Errors and warnings ###
+### Errors and warnings {#errors_and_warnings} ###
 
 The [console.error()][19] method displays a red icon along with the message
 text, which is colored red.
@@ -112,7 +136,7 @@ text.
 
 ![Example of console.warn()][22]
 
-### Assertions ###
+### Assertions {#assertions} ###
 
 The [console.assert()][23] method conditionally displays an error string (its
 second parameter) only if its first parameter evaluates to `false`. For
@@ -124,7 +148,7 @@ than 500.
 
 ![Example of console.assert()][24]
 
-### Filtering console output ###
+### Filtering console output {#filtering_console_output} ###
 
 You can quickly filter console output by its severity level--errors, warning, or
 standard log statements--by selecting one of the filter options along the bottom
@@ -141,7 +165,7 @@ Filter options:
 `console.debug()`.
 * **Debug**—Only show output from `console.timeEnd()` and other console output.
 
-### Grouping output ###
+### Grouping output {#grouping_output} ###
 
 You can visually group related console output statements together in the console
 with the [console.group()][26] and [groupEnd()][27] commands.
@@ -165,7 +189,7 @@ To create a group that is initially collapsed, use
 
 ![Initially collapsed group][31]
 
-### String substitution and formatting ###
+### String substitution and formatting {#string_substitution_and_formatting} ###
 
 The first parameter you pass to any of the console's logging methods (`log()` or
 `error()`, for example) may contain one or more *format specifiers*. A format
@@ -195,7 +219,7 @@ formatted as a floating point number.
 
 ![Using format specifiers][32]
 
-### Formatting DOM elements as JavaScript objects ###
+### Formatting DOM elements as JavaScript objects {#formatting_dom_elements_as_javascript_objects} ###
 
 By default, when you log a DOM element to the console it's displayed in an XML
 format, as in the Elements panel:
@@ -215,7 +239,7 @@ Equivalently, you can us the `%O` [format specifier][35] with `console.log()`:
 
 	console.log("%O", document.body.firstElementChild);
 
-### Styling console output with CSS ###
+### Styling console output with CSS {#styling_console_output_with_css} ###
 
 You use the `%c` format specifier to apply custom CSS rules to any string you
 write to the Console with [console.log()][36] or related methods.
@@ -224,7 +248,7 @@ write to the Console with [console.log()][36] or related methods.
 
 ![Styling console output with CSS][37]
 
-### Measuring how long something takes ###
+### Measuring how long something takes {#measuring_how_long_something_takes} ###
 
 You can use the [console.time()][38] and [console.timeEnd()][39] methods to measure how long a function or operation in your code takes to complete. You call `console.time()` at the point in your code where you want to start the timer and `console.timeEnd()` to stop the timer. The elapsed time between these two calls is displayed in the console. 
 
@@ -234,7 +258,7 @@ You can use the [console.time()][38] and [console.timeEnd()][39] methods to meas
 
 
 
-### Marking the Timeline ###
+### Marking the Timeline {#marking_the_timeline} ###
 
 The [Timeline panel][41] gives you a complete overview of where time is spent
 when loading and using your web app or page. The [console.timeStamp()][42]
@@ -257,7 +281,7 @@ Timeline in the following places:
 
 ![Timeline showing custom timestamp][43]
 
-### Setting breakpoints in JavaScript ###
+### Setting breakpoints in JavaScript {#setting_breakpoints_in_javascript} ###
 
 You can start a debugging session from your JavaScript code by calling the
 [debugger][44] command. For instance, in the following example the JavaScript
@@ -268,7 +292,7 @@ debugger is opened when an object's `brightness()` function is invoked:
 ![Example of using debugger command][45]
 
 
-## Using the Command Line API ##
+## Using the Command Line API {#using_the_command_line_api} ##
 
 In addition to being a place where you can log information from your
 application, the Console is also a shell prompt where you can directly evaluate
@@ -281,7 +305,7 @@ provides the following features:
 * Monitoring events
 * View event listeners registered on objects
 
-### Evaluating expressions ###
+### Evaluating expressions {#evaluating_expressions} ###
 
 The Console attempts to evaluate any JavaScript expression you enter at the
 shell prompt, upon pressing the Return or Enter key. The Console provides auto-
@@ -298,7 +322,7 @@ definition) press Shift+Enter between lines.
 
 ![][48]
 
-### Selecting elements ###
+### Selecting elements {#selecting_elements} ###
 
 The Command Line API provides several methods to access DOM elements in your
 application. For example, the [$()][49] method returns the first element that
@@ -324,7 +348,7 @@ the `<script>` elements that are children of the `<body>` tag:
 
 	$x('/html/body/script');
 
-### Inspecting DOM elements and JavaScript heap objects ###
+### Inspecting DOM elements and JavaScript heap objects {#inspecting_dom_elements_and_javascript_heap_objects} ###
 
 The [inspect()][56] method takes a DOM element reference (or JavaScript
 reference) as a parameter and displays the element or object in the appropriate
@@ -337,7 +361,7 @@ reference to an `<li>` element. Then the last evaluated expression property
 
 ![][58]
 
-### Accessing recently selected elements and objects ###
+### Accessing recently selected elements and objects {#accessing_recently_selected_elements_and_objects} ###
 
 Often when testing you'll select DOM elements—either directly in the Elements
 panel or using the Selection tool (magnifying glass)—so that you can further
@@ -356,7 +380,7 @@ three different elements in turn from the Elements panel:
 
 
 
-### Monitoring events ###
+### Monitoring events {#monitoring_events} ###
 
 The [monitorEvents()][62] command monitors an object for one or more specified
 events. When an event occurs on the monitored object, the corresponding Event
@@ -389,7 +413,7 @@ monitoring.
 
 	unmonitorEvents(window);
 
-### Controlling the CPU profiler ###
+### Controlling the CPU profiler {#controlling_the_cpu_profiler} ###
 
 You can create JavaScript CPU profiles from the command line with the
 [profile()][65] and [profileEnd()][66] commands. You can optionally specify a
@@ -427,73 +451,74 @@ example, the following works the same as the previous example:
 
 
 
-[0]: https://developers.google.com/chrome-developer-tools/docs/console-api ""
-[1]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolelogobject_object ""
-[2]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleprofilelabel ""
-[3]: https://developers.google.com/chrome-developer-tools/docs/commandline-api ""
-[4]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector ""
-[5]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profile ""
-[6]: https://developers.google.com/chrome-developer-tools/docs/console-api ""
-[7]: https://developers.google.com/chrome-developer-tools/docs/commandline-api ""
-[8]: https://developers.google.com/chrome-developer-tools/docs/console-files/console1.png "Console panel view"
-[9]: https://developers.google.com/chrome-developer-tools/docs/console-files/console-split-view.png "Console split-view"
-[10]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#clear ""
-[11]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleclear ""
-[12]: https://developers.google.com/chrome-developer-tools/docs/console#consolepreferences ""
-[13]: https://developers.google.com/chrome-developer-tools/docs/console-files/console-context-menu.png "Console panel view"
-[14]: https://developers.google.com/chrome-developer-tools/docs/console#writing_to_the_console ""
-[15]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolelogobject_object ""
-[16]: https://developers.google.com/chrome-developer-tools/docs/console-files/log-basic.png "Console log output"
-[17]: https://developers.google.com/chrome-developer-tools/docs/console-files/log-multiple.png "Console log output"
-[18]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleerrorobject_object ""
-[19]: https://developers.google.com/chrome-developer-tools/docs/console-files/error-server-not-resp.png ""
-[20]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolewarnobject_object ""
-[21]: https://developers.google.com/chrome-developer-tools/docs/console-files/warning-too-few-nodes.png "Example of console.warn()"
-[22]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleassertexpression_object ""
-[23]: https://developers.google.com/chrome-developer-tools/docs/console-files/assert-failed.png "Example of console.assert()"
-[24]: https://developers.google.com/chrome-developer-tools/docs/console-files/filter-errors.png "Only show console.error() output"
-[25]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupobject_object ""
-[26]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupend ""
-[27]: https://developers.google.com/chrome-developer-tools/docs/console-files/group.png "Logging group example"
-[28]: https://developers.google.com/chrome-developer-tools/docs/console-files/nestedgroup.png "Nested logging group example"
-[29]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupcollapsed ""
-[30]: https://developers.google.com/chrome-developer-tools/docs/console-files/groupcollapsed.png "Initially collapsed group"
-[31]: https://developers.google.com/chrome-developer-tools/docs/console-files/format-substitution.png "Using format specifiers"
-[32]: https://developers.google.com/chrome-developer-tools/docs/console-files/log-element.png ""
-[33]: https://developers.google.com/chrome-developer-tools/docs/console-files/dir-element.png ""
-[34]: https://developers.google.com/chrome-developer-tools/docs/console#string_substitution_and_formatting ""
-[35]: https://developers.google.com/chrome-developer-tools/docs/console#writingtotheconsole ""
-[36]: https://developers.google.com/chrome-developer-tools/docs/console-files/format-string.png "Styling console output with CSS"
-[37]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimelabel ""
-[38]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel ""
-[39]: https://developers.google.com/chrome-developer-tools/docs/console-files/time-duration.png "Example of using console.time() and timeEnd()"
-[40]: https://developers.google.com/chrome-developer-tools/docs/timeline ""
-[41]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimestamplabel ""
-[42]: https://developers.google.com/chrome-developer-tools/docs/console-files/timestamp2.png "Timeline showing custom timestamp"
-[43]: https://developers.google.com/chrome-developer-tools/docs/console-api#debugger ""
-[44]: https://developers.google.com/chrome-developer-tools/docs/console-files/debugger.png "Example of using debugger command"
-[45]: https://developers.google.com/chrome-developer-tools/docs/commandline-api ""
-[46]: https://developers.google.com/chrome-developer-tools/docs/console-files/evaluate-expressions.png ""
-[47]: https://developers.google.com/chrome-developer-tools/docs/console-files/multiline-expression.png ""
-[48]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector ""
-[49]: http://docs.webplatform.org/wiki/css/selectors_api/querySelector ""
-[50]: https://developers.google.com/chrome-developer-tools/docs/console-files/select-login-btn.png ""
-[51]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector_1 ""
-[52]: http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll ""
-[53]: https://developers.google.com/chrome-developer-tools/docs/console-files/select-multiple-login.png ""
-[54]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#xpath ""
-[55]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#inspectobject ""
-[56]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#_ ""
-[57]: https://developers.google.com/chrome-developer-tools/docs/console-files/inspect2.png ""
-[58]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4 ""
-[59]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4 ""
-[60]: https://developers.google.com/chrome-developer-tools/docs/console-files/recent-selection.png "Recently selected elements"
-[61]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events ""
-[62]: https://developers.google.com/chrome-developer-tools/docs/console-files/monitor-resize.png "Monitoring window resize events"
-[63]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events ""
-[64]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profilename ""
-[65]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profileendname ""
-[66]: https://developers.google.com/chrome-developer-tools/docs/commandline-api-files/profile-console.png ""
-[67]: https://developers.google.com/chrome-developer-tools/docs/commandline-api-files/profile-panel.png ""
-[68]: https://developers.google.com/chrome-developer-tools/docs/commandline-api-files/profile-console-2.png ""
-[69]: https://developers.google.com/chrome-developer-tools/docs/commandline-api-files/profile-panel-2.png ""
+
+[1]: https://developers.google.com/chrome-developer-tools/docs/console-api
+[2]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolelogobject_object
+[3]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleprofilelabel
+[4]: https://developers.google.com/chrome-developer-tools/docs/commandline-api
+[5]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector
+[6]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profile
+[7]: https://developers.google.com/chrome-developer-tools/docs/console-api
+[8]: https://developers.google.com/chrome-developer-tools/docs/commandline-api
+[9]: ./console1.png "Console panel view"
+[10]: ./console-split-view.png "Console split-view"
+[11]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#clear
+[12]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleclear
+[13]: https://developers.google.com/chrome-developer-tools/docs/console#consolepreferences
+[14]: ./console-context-menu.png "Console panel view"
+[15]: https://developers.google.com/chrome-developer-tools/docs/console#writing_to_the_console
+[16]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolelogobject_object
+[17]: ./log-basic.png "Console log output"
+[18]: ./log-multiple.png "Console log output"
+[19]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleerrorobject_object
+[20]: ./error-server-not-resp.png
+[21]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolewarnobject_object
+[22]: ./warning-too-few-nodes.png "Example of console.warn()"
+[23]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleassertexpression_object
+[24]: ./assert-failed.png "Example of console.assert()"
+[25]: ./filter-errors.png "Only show console.error() output"
+[26]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupobject_object
+[27]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupend
+[28]: ./group.png "Logging group example"
+[29]: ./nestedgroup.png "Nested logging group example"
+[30]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupcollapsed
+[31]: ./groupcollapsed.png "Initially collapsed group"
+[32]: ./format-substitution.png "Using format specifiers"
+[33]: ./log-element.png
+[34]: ./dir-element.png
+[35]: https://developers.google.com/chrome-developer-tools/docs/console#string_substitution_and_formatting
+[36]: https://developers.google.com/chrome-developer-tools/docs/console#writingtotheconsole
+[37]: ./format-string.png "Styling console output with CSS"
+[38]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimelabel
+[39]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel
+[40]: ./time-duration.png "Example of using console.time() and timeEnd()"
+[41]: https://developers.google.com/chrome-developer-tools/docs/timeline
+[42]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimestamplabel
+[43]: ./timestamp2.png "Timeline showing custom timestamp"
+[44]: https://developers.google.com/chrome-developer-tools/docs/console-api#debugger
+[45]: ./debugger.png "Example of using debugger command"
+[46]: https://developers.google.com/chrome-developer-tools/docs/commandline-api
+[47]: ./evaluate-expressions.png
+[48]: ./multiline-expression.png
+[49]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector
+[50]: http://docs.webplatform.org/wiki/css/selectors_api/querySelector
+[51]: ./select-login-btn.png
+[52]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector_1
+[53]: http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll
+[54]: ./select-multiple-login.png
+[55]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#xpath
+[56]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#inspectobject
+[57]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#_
+[58]: ./inspect2.png
+[59]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4
+[60]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4
+[61]: ./recent-selection.png "Recently selected elements"
+[62]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events
+[63]: ./monitor-resize.png "Monitoring window resize events"
+[64]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events
+[65]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profilename
+[66]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profileendname
+[67]: ./profile-console.png
+[68]: ./profile-panel.png
+[69]: ./profile-console-2.png
+[70]: ./profile-panel-2.png
