@@ -389,15 +389,27 @@ panel or using the Selection tool (magnifying glass)—so that you can further
 inspect the element. Or, when analyzing a memory snapshot in the Profiles panel,
 you might select a JavaScript object to further inspect it.
 
+Часто во время тестирования вы выбираете элемент DOM либо непосредственно во
+вскладке Elements либо используя соответсвутющий инструмент (иконка — увеличительное
+стекло), что бы работать с ним.
+
 The Console remembers the last five elements (or heap objects) you've selected
 and makes them available as properties named [$0, $1, $2, $3][59] and [$4][60].
 The most recently selected element or object is available as **`$0`**, the
 second most as **`$1`**, and so forth.
 
+Консоль запоминает последние пять элементов (или объектов кучи), которые вы выбирали
+и к ним можно обратиться используя свойства [$0, $1, $2, $3][59] и [$4][60].
+
 The following screenshot shows the values of these properties after selecting
 three different elements in turn from the Elements panel:
 
+Следующий скриншот показывает значения этих свойств после выбора трех различных
+эдлементов подряд из вкладки Elements:
+
 ![Recently selected elements][61]
+
+![Недавно выбранные элементы][61]
 
 
 
