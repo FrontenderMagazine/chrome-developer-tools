@@ -313,33 +313,24 @@ Console API — набор методов доступных из объекта
 ![Example of using debugger command][45]
 
 
-## Using the Command Line API ##
+## Использование Command Line API ##
 
-In addition to being a place where you can log information from your
-application, the Console is also a shell prompt where you can directly evaluate
-expressions or issue commands provided by the [Command Line API][46]. This API
-provides the following features:
+Кроме того, что консоль это место вывода логов вашего приложения, вы можете вводить в нее команды, определенные в [Command Line API][46]. 
+Это API дает следующие возможности:
 
-* Convenience functions for selecting DOM elements
-* Methods for Контроль за CPU-профайлером
-* Aliases for a number of Console API methods
-* Отслеживание событий
-* View event listeners registered on objects
+* удобные функции для выделения DOM-элементов.
+* Методы управления CPU-профайлером.
+* Псевдонимы для некоторых методов Console API.
+* Отслеживание событий.
+* Просмотр обработчиков событий объекта.
 
 ### Выполнение выражений ###
 
-The Console attempts to evaluate any JavaScript expression you enter at the
-shell prompt, upon pressing the Return or Enter key. The Console provides auto-
-completion and tab-completion. As you type expressions, property names are
-automatically suggested. If there are multiple properties with the same prefix,
-pressing the Tab key cycles through them. Pressing the right arrow key accepts
-the current suggestion. The current suggestion is also accepted by pressing the
-Tab key if there is only one matched property.
+Консоль стремится выполнить любой JavaScript-код, который вы в неё введёте, сразу после нажатия кнопки Return или Enter. В консоли работает автокомплит сам по себе и по табу. По мере того, как вы печатаете названия переменных и свойств предлагаются автоматически. Если существуют несколько одинаково начинающихся свойств, вы можете выбирать между ними нажимая Tab. Нажав стрелку вправов вы выберете текущую подсказку. Также текущая подсказка будет выбрана и нажатием по табу, если подсказка только одна.
 
 ![][47]
 
-To enter a multi-line expression at the shell prompt (such as a function
-definition) press Shift+Enter between lines.
+Для того, чтобы вводить многострочные JavaScript-выражения используйте сочетание клавиш Shift+Enter между строчек.
 
 ![][48]
 
