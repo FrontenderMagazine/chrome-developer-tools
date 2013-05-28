@@ -380,15 +380,27 @@ panel or using the Selection tool (magnifying glass)—so that you can further
 inspect the element. Or, when analyzing a memory snapshot in the Profiles panel,
 you might select a JavaScript object to further inspect it.
 
+Часто во время тестирования вы выбираете элемент DOM либо непосредственно во
+вскладке Elements либо используя соответсвутющий инструмент (иконка — увеличительное
+стекло), что бы работать с ним.
+
 The Console remembers the last five elements (or heap objects) you've selected
 and makes them available as properties named [$0, $1, $2, $3][59] and [$4][60].
 The most recently selected element or object is available as **`$0`**, the
 second most as **`$1`**, and so forth.
 
+Консоль запоминает последние пять элементов (или объектов кучи), которые вы выбирали
+и к ним можно обратиться используя свойства [$0, $1, $2, $3][59] и [$4][60].
+
 The following screenshot shows the values of these properties after selecting
 three different elements in turn from the Elements panel:
 
+Следующий скриншот показывает значения этих свойств после выбора трех различных
+эдлементов подряд из вкладки Elements:
+
 ![Recently selected elements][61]
+
+![Недавно выбранные элементы][61]
 
 
 
@@ -400,13 +412,24 @@ object is logged to the Console. You specify the object and the events you want
 to monitor on that object. For example, the following code enables event
 monitoring for every "resize" event on the global window object.
 
+Комманда [monitorEvents()][62] позволяет отслеживать определенные события объекта.
+При возникновении события оно выводится в консоль. Вы определеяете объект и
+отслеживаемые события. Например, следующий код позволяет отслеживать событие
+"resize" объекта окна.
+
 	monitorEvents(window, "resize");
 
 ![Monitoring window resize events][63]
 
+![Отследивание события изменения размеров окна][63]
+
 To monitor several events, you can pass an array of event names as the second
 parameter. The code below monitors both "mousedown" and "mouseup" events on the
 body of the document.
+
+Что бы отслеживать несколько событий одновременно можно передать в качестве
+второго аргумента массив имен событий. Следующий код отслеживает одновременно
+события "mousedown" и "mouseup" элемента `body`:
 
 	monitorEvents(document.body, ["mousedown", "mouseup"]);
 
@@ -415,13 +438,24 @@ of actual event names. For example, the "touch" event type cause DevTools to
 monitor "touchstart", "touchend", "touchmove", and "touchcancel" events on the
 target object.
 
+Кроме того вы можете передать один из поддерживаемых «типов событий», которые
+DevTools сами преобразуют в реальные имена событий. Например, тип события «touch»
+позволит отслеживать события "touchstart", "touchend", "touchmove", и "touchcancel"
+объекта.
+
 	monitorEvents($('#scrollBar'), "touch");
 
 See [monitorEvents()][64] in the Console API Reference for a list of supported
 event types.
 
+Что бы узнать какие типы событий поддерживаются смотрите [monitorEvents()][64]
+в Console API Reference.
+
 To stop monitoring events call `unmonitorEvents()`, passing the object to stop
 monitoring.
+
+Что бы прекратить отслеживать событие вызовите`unmonitorEvents()` с объектом
+в качестве аргумента.
 
 	unmonitorEvents(window);
 
@@ -431,12 +465,19 @@ You can create JavaScript CPU profiles from the command line with the
 [profile()][65] and [profileEnd()][66] commands. You can optionally specify a
 name that's applied to the profile you create.
 
+С помощью комманд [profile()][65] и [profileEnd()][66] можно создавать
+JavaScript профили CPU. По желанию можно задать профилю имя.
+
 For example, the following shows an example of creating a new profile with the
 default name:
+
+Ниже вы видите пример создания нового профиля с именем назначенным по умолчанию.
 
 ![][67]
 
 The new profile appears in the Profiles panel under the name "Profile 1":
+
+Новый профиль появляется во вкладке Profiles с именем "Profile 1":
 
 ![][68]
 
@@ -444,18 +485,29 @@ If you specify a label for the new profile, it is used as the new profile's
 heading. If you create multiple profiles with the same name, they are grouped as
 individual runs under the same heading:
 
+Если вы задаете имя для нового профиля, то она она используется в качестве
+его заголовка. Если вы создаете множество профилей с одинаковыми именами, то
+они групируются под одним заголовком.
+
 ![][69]
 
 The result in the Profiles panel:
+
+Результат во вкладке Profiles:
 
 ![][70]
 
 CPU profiles can be nested, for example:
 
+Профили CPU могут быть вложенные, например:
+
 	profile("A");profile("B");profileEnd("B")profileEnd("A")
 
 The calls to stop and start profiling do not need be properly nested. For
 example, the following works the same as the previous example:
+
+Комманды остановки и запуска профилирования не обязательно должны быть корректно
+вложены друг в друга. Например, этот пример будет работать так же, как и предидущий:
 
 	profile("A");profile("B"); profileEnd("A");profileEnd("B");
 
