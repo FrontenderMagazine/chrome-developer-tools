@@ -440,12 +440,19 @@ You can create JavaScript CPU profiles from the command line with the
 [profile()][65] and [profileEnd()][66] commands. You can optionally specify a
 name that's applied to the profile you create.
 
+С помощью комманд [profile()][65] и [profileEnd()][66] можно создавать
+JavaScript профили CPU. По желанию можно задать профилю имя.
+
 For example, the following shows an example of creating a new profile with the
 default name:
+
+Ниже вы видите пример создания нового профиля с именем назначенным по умолчанию.
 
 ![][67]
 
 The new profile appears in the Profiles panel under the name "Profile 1":
+
+Новый профиль появляется во вкладке Profiles с именем "Profile 1":
 
 ![][68]
 
@@ -453,18 +460,29 @@ If you specify a label for the new profile, it is used as the new profile's
 heading. If you create multiple profiles with the same name, they are grouped as
 individual runs under the same heading:
 
+Если вы задаете имя для нового профиля, то она она используется в качестве
+его заголовка. Если вы создаете множество профилей с одинаковыми именами, то
+они групируются под одним заголовком.
+
 ![][69]
 
 The result in the Profiles panel:
+
+Результат во вкладке Profiles:
 
 ![][70]
 
 CPU profiles can be nested, for example:
 
+Профили CPU могут быть вложенные, например:
+
 	profile("A");profile("B");profileEnd("B")profileEnd("A")
 
 The calls to stop and start profiling do not need be properly nested. For
 example, the following works the same as the previous example:
+
+Комманды остановки и запуска профилирования не обязательно должны быть корректно
+вложены друг в друга. Например, этот пример будет работать так же, как и предидущий:
 
 	profile("A");profile("B"); profileEnd("A");profileEnd("B");
 
