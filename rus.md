@@ -409,13 +409,24 @@ object is logged to the Console. You specify the object and the events you want
 to monitor on that object. For example, the following code enables event
 monitoring for every "resize" event on the global window object.
 
+Комманда [monitorEvents()][62] позволяет отслеживать определенные события объекта.
+При возникновении события оно выводится в консоль. Вы определеяете объект и
+отслеживаемые события. Например, следующий код позволяет отслеживать событие
+"resize" объекта окна.
+
 	monitorEvents(window, "resize");
 
 ![Monitoring window resize events][63]
 
+![Отследивание события изменения размеров окна][63]
+
 To monitor several events, you can pass an array of event names as the second
 parameter. The code below monitors both "mousedown" and "mouseup" events on the
 body of the document.
+
+Что бы отслеживать несколько событий одновременно можно передать в качестве
+второго аргумента массив имен событий. Следующий код отслеживает одновременно
+события "mousedown" и "mouseup" элемента `body`:
 
 	monitorEvents(document.body, ["mousedown", "mouseup"]);
 
@@ -424,13 +435,24 @@ of actual event names. For example, the "touch" event type cause DevTools to
 monitor "touchstart", "touchend", "touchmove", and "touchcancel" events on the
 target object.
 
+Кроме того вы можете передать один из поддерживаемых «типов событий», которые
+DevTools сами преобразуют в реальные имена событий. Например, тип события «touch»
+позволит отслеживать события "touchstart", "touchend", "touchmove", и "touchcancel"
+объекта.
+
 	monitorEvents($('#scrollBar'), "touch");
 
 See [monitorEvents()][64] in the Console API Reference for a list of supported
 event types.
 
+Что бы узнать какие типы событий поддерживаются смотрите [monitorEvents()][64]
+в Console API Reference.
+
 To stop monitoring events call `unmonitorEvents()`, passing the object to stop
 monitoring.
+
+Что бы прекратить отслеживать событие вызовите`unmonitorEvents()` с объектом
+в качестве аргумента.
 
 	unmonitorEvents(window);
 
