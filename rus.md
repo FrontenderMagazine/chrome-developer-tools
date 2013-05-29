@@ -336,27 +336,19 @@ Console API — набор методов доступных из объекта
 
 ### Выделение элементов ###
 
-The Command Line API provides several methods to access DOM elements in your
-application. For example, the [$()][49] method returns the first element that
-matches the specified CSS selector, just like [document.querySelector()][50].
-For instance, the following code returns the element with the ID "loginBtn".
+Command Line API предоставляет набор методов для доступа к DOM-элементам в вашем приложении. К примеру, метод [`$()`][49] возвращает первый элемент, соответствующий объявленному CSS-селектору, идентично с [`document.querySelector()`][50]. Следующий код вернёт элемент с ID «loginBtn».
 
 	$('#loginBtn');
 
 ![][51]
 
-The [$$()][52] command returns an array of all the elements that match the
-specified CSS selector, just like [document.querySelectorAll()][53]. For
-instance, the following displays selects all `<button>` elements with the CSS
-class "loginBtn":
+Метод [`$$()`][52] возвращает массив элементов, соответствующих указанному CSS-селектору, идентично [`document.querySelectorAll()`][53]. Следующий код покажет все кнопки с классом `loginBtn`:
 
 	$$('button.loginBtn');
 
 ![][54]
 
-Lastly  the [x()][55] method takes an XPath path as a parameter and returns an
-array of all elements that match the specified path. The following returns all
-the `<script>` elements that are children of the `<body>` tag:
+Наконец, метод [`x()`][55] принимает XPath-путь в качестве параметра и возвращает массив элементов, подпадающих под указанный путь. Например, этот код вернёт все элементы `<script>`, являющиеся дочерними по отношению к элементу `<body>`:
 
 	$x('/html/body/script');
 
