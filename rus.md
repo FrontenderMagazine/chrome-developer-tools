@@ -1,16 +1,14 @@
 Ипользование консоли
 ============================================================
 
-Джаваскрипт консоль предоставляет две функции для разработчиков для тестирования
-веб-страниц и приложений:
+Джаваскрипт консоль предоставляет две функции для разработчиков для тестирования веб-страниц и приложений:
 
 * в консоль можно выводить отладочную информацию используя [Console API][1]:
 такие методы как [console.log()][2] и [console.profile()][3];
 * оболочка для работы в консоли, в которой вы можете вводить команды,
 использовать автодополнение и оперировать функциями document и Chrome DevTools.
 Вы можете выполнять выражения прямо в консоли, также вы можете использовать
-методы из [Command Line API][4], такие как [$()][5] для выделения элементов, или
-[profile()][6] для CPU-профайлера.
+методы из [Command Line API][4], такие как [$()][5] для выделения элементов, или [profile()][6] для CPU-профайлера.
 
 Эта документация расскажет про распространённые способы использования этих двух
 API. Также вы можете посмотреть [Console API][7] and [Command Line API][8] в
@@ -27,7 +25,7 @@ API. Также вы можете посмотреть [Console API][7] and [Com
 	* [Фильтрация вывода в консоли](#filtering-console-output)
 	* [Группирование вывода](#grouping-output)
 	* [Замена строк и их форматирование](#string-substitution-and-formatting)
-	* [Представление DOM-элементов как джаваскрипт-объекты](#formatting-dom-elements-as-javascript-objects)
+	* [Представление DOM-элементов как JavaScript-объекты](#formatting-dom-elements-as-javascript-objects)
 	* [Стилизация вывода консоли с помощью CSS](#styling-console-output-with-css)
 	* [Измерение временных затрат](#measuring-how-long-something-takes)
 	* [Корреляция с панелью Timeline](#marking-the-timeline)
@@ -35,7 +33,7 @@ API. Также вы можете посмотреть [Console API][7] and [Com
 * [Using the Command Line API](#using-the-command-line-api)
 	* [Выполнение выражений](#evaluating-expressions)
 	* [Выделение элементов](#selecting-elements)
-	* [Инспектирование DOM-элементов и джаваскрипт объектов](#inspecting-dom-elements-and-javascript-heap-objects)
+	* [Инспектирование DOM-элементов и JavaScript объектов](#inspecting-dom-elements-and-javascript-heap-objects)
 	* [Доступ к недавним элементам или объектам](#accessing-recently-selected-elements-and-objects)
 	* [Отслеживание событий](#monitoring-events)
 	* [Контроль за CPU-профайлером](#controlling-the-cpu-profiler)
@@ -45,9 +43,9 @@ API. Также вы можете посмотреть [Console API][7] and [Com
 
 ### Открытие консоли ###
 
-Джаваскрипт консоль доступна в двух вариантах в пределах Chrome DevTools (!!!): главная вкладка «Консоль» и также в виде половинчатой версии, доступной из любой другой вкладки.
+Джаваскрипт консоль доступна в двух вариантах в пределах Chrome DevTools: главная панель Console и также в виде половинчатой версии, доступной из любой другой панели.
 
-Для того, чтобы открыть вкладку «Консоль», сделайте что-нибудь из этого списка:
+Для того, чтобы открыть панель Console, сделайте что-нибудь из этого списка:
 
 * используйте хоткей **Command - Option - J** (Mac) или **Control - Shift - J**
 (Windows/Linux);
@@ -55,7 +53,7 @@ API. Также вы можете посмотреть [Console API][7] and [Com
 
 ![Console panel view][9]
 
-Для переключения половинчатой версии консоли на других вкладках нажмите клавишу **Esc** или кликните на иконку **Show/Hide Console** в нижнем левом углу DevTools. Скриншот показывает половинчатую консоль в панели Elements.
+Для переключения половинчатой версии консоли в других панелях нажмите клавишу **Esc** или кликните на иконку **Show/Hide Console** в нижнем левом углу DevTools. Скриншот показывает половинчатую консоль в панели Elements.
 
 ![Console split-view][10]
 
@@ -65,7 +63,7 @@ API. Также вы можете посмотреть [Console API][7] and [Com
 
 * через контекстное меню панели консоли (клик правой кнопки мыши) и пункт **Clear Console**.
 * Введите [clear()][11] — команду из Command Line API в консоли.
-* Вызовите [console.clear()][12] (команду из Console API) в своём джаваскрипт коде.
+* Вызовите [console.clear()][12] (команду из Console API) в своём JavaScript коде.
 * Используйте хоткеи **⌘K** или **⌃L** (Mac) **Control - L** (Windows и Linux).
 
 По умолчанию, история консоли очищается при переходе на другую страницу. Вы можете поменять это включив **Preserve log upon navigation** в разделе консоли в настройках DevTools (см. [настройки Консоли][13]).
@@ -202,7 +200,7 @@ Console API — набор методов доступных из объекта
 
 Приведённая таблица содержит поддерживаемые модификаторы форматирования и их значения:
 
-<table>
+<table class="test-table">
 <thead>
 <tr>
 	<th>Модификатор форматирования <th>Описание
@@ -221,7 +219,7 @@ Console API — набор методов доступных из объекта
 	<td>Форматирует значение как открывающийся DOM-элемент (также как в панели Elements).
 <tr>
 	<td><code>%O</code>
-	<td>Форматирует значение как открывающийся джаваскрипт-объект.
+	<td>Форматирует значение как открывающийся JavaScript-объект.
 <tr>
 	<td><code>%c</code>
 	<td>Применяет CSS-стили к выводимой строке, переданные вторым параметром.
@@ -233,7 +231,7 @@ Console API — набор методов доступных из объекта
 
 ![Using format specifiers][32]
 
-### Представление DOM-элементов как джаваскрипт-объекты ###
+### Представление DOM-элементов как JavaScript-объекты ###
 
 По умолчанию, когда вы логируете DOM-элемент в консоль, он выводится в XML-формате, как в панели Elements:
 
@@ -241,7 +239,7 @@ Console API — набор методов доступных из объекта
 
 ![][33]
 
-Вы можете вывести DOM-элемент в джаваскрипт-представлении с помощью метода `console.dir()`:
+Вы можете вывести DOM-элемент в JavaScript-представлении с помощью метода `console.dir()`:
 
 	console.dir(document.body.firstElementChild);
 
@@ -279,7 +277,7 @@ Console API — набор методов доступных из объекта
 
 Панель [Timeline][41] предоставляет подробный обзор того, куда было потрачено время работы вашего приложения. Метод [console.timeStamp()][42] создаёт отдельную отметку в момент своего исполнения. Это помогает легко и непринуждённо соотносить события в приложении с браузерными событиями reflow и repaint.
 
-> Внимание: метод `console.timeStamp()` выполняется только при записи событий во вкладке Timeline.
+> Внимание: метод `console.timeStamp()` выполняется только при записи событий в панели Timeline.
 
 В следующем примере в панели Timeline появляется отметка «Adding result» в тот момент, когда поток выполнения программы доходит до `console.timeStamp("Adding result")`
 
@@ -336,75 +334,50 @@ Console API — набор методов доступных из объекта
 
 ### Выделение элементов ###
 
-Command Line API предоставляет набор методов для доступа к DOM-элементам в вашем приложении. К примеру, метод [`$()`][49] возвращает первый элемент, соответствующий объявленному CSS-селектору, идентично с [`document.querySelector()`][50]. Следующий код вернёт элемент с ID «loginBtn».
+Command Line API предоставляет набор методов для доступа к DOM-элементам в вашем приложении. К примеру, метод [$()][49] возвращает первый элемент, соответствующий объявленному CSS-селектору, идентично с [document.querySelector()][50]. Следующий код вернёт элемент с ID «loginBtn».
 
 	$('#loginBtn');
 
 ![][51]
 
-Метод [`$$()`][52] возвращает массив элементов, соответствующих указанному CSS-селектору, идентично [`document.querySelectorAll()`][53]. Следующий код покажет все кнопки с классом `loginBtn`:
+Метод [$$()][52] возвращает массив элементов, соответствующих указанному CSS-селектору, идентично [document.querySelectorAll()][53]. Следующий код покажет все кнопки с классом `loginBtn`:
 
 	$$('button.loginBtn');
 
 ![][54]
 
-Наконец, метод [`x()`][55] принимает XPath-путь в качестве параметра и возвращает массив элементов, подпадающих под указанный путь. Например, этот код вернёт все элементы `<script>`, являющиеся дочерними по отношению к элементу `<body>`:
+Наконец, метод [x()][55] принимает XPath-путь в качестве параметра и возвращает массив элементов, подпадающих под указанный путь. Например, этот код вернёт все элементы `<script>`, являющиеся дочерними по отношению к элементу `<body>`:
 
 	$x('/html/body/script');
 
-### Инспектирование DOM-элементов и джаваскрипт объектов ###
+### Инспектирование DOM-элементов и JavaScript-объектов ###
 
-The [inspect()][56] method takes a DOM element reference (or JavaScript
-reference) as a parameter and displays the element or object in the appropriate
-panel—the Elements panel for DOM elements, or the Profile panel for a JavaScript
-object.
+Метод [inspect()][56] принимает ссылку на DOM-элемент (или JavaScript-объект) в качестве параметра и отображает элемент или объект в соотвуствующей панеле: DOM-элемент в панели Elements и JavaScript-объект в панели Profile.
 
-For example, in the following screenshot the `$()` function is used to get a
-reference to an `<li>` element. Then the last evaluated expression property
-([$_][57]) is passed to `inspect()` to open that element in the Elements panel.
+К примеру, в следующем скриншоте функция `$()` использована, чтобы получить ссылку на элемент `<li>`. Затем последнее исполненое выражение ([$_][57]) передаётся в `inspect()`, чтобы открыть этот элемент в панели Elements.
 
 ![][58]
 
 ### Доступ к недавним элементам или объектам ###
 
-Often when testing you'll select DOM elements—either directly in the Elements
-panel or using the Selection tool (magnifying glass)—so that you can further
-inspect the element. Or, when analyzing a memory snapshot in the Profiles panel,
-you might select a JavaScript object to further inspect it.
+Часто во время тестирования вы выбираете DOM-элементы либо непосредственно во
+панели Elements, либо используя соответствующий инструмент (иконка — увеличительное стекло), что бы работать с этими элементами. Также вы можете выбрать снимок использования памяти в панели Profiles, для дальнейшего изучения этого объекта.
 
-Часто во время тестирования вы выбираете элемент DOM либо непосредственно во
-вскладке Elements либо используя соответсвутющий инструмент (иконка — увеличительное
-стекло), что бы работать с ним.
-
-The Console remembers the last five elements (or heap objects) you've selected
-and makes them available as properties named [$0, $1, $2, $3][59] and [$4][60].
-The most recently selected element or object is available as **`$0`**, the
-second most as **`$1`**, and so forth.
-
-Консоль запоминает последние пять элементов (или объектов кучи), которые вы выбирали
-и к ним можно обратиться используя свойства [$0, $1, $2, $3][59] и [$4][60].
-
-The following screenshot shows the values of these properties after selecting
-three different elements in turn from the Elements panel:
+Консоль запоминает последние пять элементов (или объектов), которые вы выбирали и к ним можно обратиться используя свойства [$0, $1, $2, $3][59] и [$4][60]. Последний выбранный элемент или объект доступен как **`$0`**, второй — **`$1`** и так далее.
 
 Следующий скриншот показывает значения этих свойств после выбора трех различных
-эдлементов подряд из вкладки Elements:
+элементов подряд из панели Elements:
 
 ![Recently selected elements][61]
 
 ![Недавно выбранные элементы][61]
 
+> Внимание: В любом случае вы можете кликнуть правой кнопкой мыли или кликнуть с зажатой клавишей Control в консоле и выбрать пункт «Reveal in Elements Panel»
 
 
 ### Отслеживание событий ###
 
-The [monitorEvents()][62] command monitors an object for one or more specified
-events. When an event occurs on the monitored object, the corresponding Event
-object is logged to the Console. You specify the object and the events you want
-to monitor on that object. For example, the following code enables event
-monitoring for every "resize" event on the global window object.
-
-Комманда [monitorEvents()][62] позволяет отслеживать определенные события объекта.
+Метод [monitorEvents()][62] позволяет отслеживать определенные события объекта.
 При возникновении события оно выводится в консоль. Вы определеяете объект и
 отслеживаемые события. Например, следующий код позволяет отслеживать событие
 "resize" объекта окна.
@@ -415,97 +388,52 @@ monitoring for every "resize" event on the global window object.
 
 ![Отследивание события изменения размеров окна][63]
 
-To monitor several events, you can pass an array of event names as the second
-parameter. The code below monitors both "mousedown" and "mouseup" events on the
-body of the document.
-
 Что бы отслеживать несколько событий одновременно можно передать в качестве
 второго аргумента массив имен событий. Следующий код отслеживает одновременно
 события "mousedown" и "mouseup" элемента `body`:
 
 	monitorEvents(document.body, ["mousedown", "mouseup"]);
 
-You can also pass one of the supported "event types" that DevTools maps to a set
-of actual event names. For example, the "touch" event type cause DevTools to
-monitor "touchstart", "touchend", "touchmove", and "touchcancel" events on the
-target object.
-
 Кроме того вы можете передать один из поддерживаемых «типов событий», которые
-DevTools сами преобразуют в реальные имена событий. Например, тип события «touch»
-позволит отслеживать события "touchstart", "touchend", "touchmove", и "touchcancel"
-объекта.
+DevTools сами преобразуют в реальные имена событий. Например, тип события touch позволит отслеживать события touchstart, touchend, touchmove, и touchcancel.
 
 	monitorEvents($('#scrollBar'), "touch");
 
-See [monitorEvents()][64] in the Console API Reference for a list of supported
-event types.
+Что бы узнать какие типы событий поддерживаются просмотрите [monitorEvents()][64] в Console API Reference.
 
-Что бы узнать какие типы событий поддерживаются смотрите [monitorEvents()][64]
-в Console API Reference.
-
-To stop monitoring events call `unmonitorEvents()`, passing the object to stop
-monitoring.
-
-Что бы прекратить отслеживать событие вызовите`unmonitorEvents()` с объектом
+Что бы прекратить отслеживать событие вызовите `unmonitorEvents()` с объектом
 в качестве аргумента.
 
 	unmonitorEvents(window);
 
 ### Контроль за CPU-профайлером ###
 
-You can create JavaScript CPU profiles from the command line with the
-[profile()][65] and [profileEnd()][66] commands. You can optionally specify a
-name that's applied to the profile you create.
-
 С помощью комманд [profile()][65] и [profileEnd()][66] можно создавать
 JavaScript профили CPU. По желанию можно задать профилю имя.
 
-For example, the following shows an example of creating a new profile with the
-default name:
-
-Ниже вы видите пример создания нового профиля с именем назначенным по умолчанию.
+Ниже вы видите пример создания нового профиля с именем назначенным по умолчанию:
 
 ![][67]
 
-The new profile appears in the Profiles panel under the name "Profile 1":
-
-Новый профиль появляется во вкладке Profiles с именем "Profile 1":
+Новый профиль появляется в панели Profiles с именем Profile 1:
 
 ![][68]
 
-If you specify a label for the new profile, it is used as the new profile's
-heading. If you create multiple profiles with the same name, they are grouped as
-individual runs under the same heading:
-
-Если вы задаете имя для нового профиля, то она она используется в качестве
-его заголовка. Если вы создаете множество профилей с одинаковыми именами, то
-они групируются под одним заголовком.
+Если вы обозначите имя для нового профиля, то оно будет использоваться в качестве его заголовка. Если вы создаете множество профилей с одинаковыми именами, то они групируются под одним заголовком:
 
 ![][69]
 
-The result in the Profiles panel:
-
-Результат во вкладке Profiles:
+Результат в панели Profiles:
 
 ![][70]
 
-CPU profiles can be nested, for example:
-
-Профили CPU могут быть вложенные, например:
+Профили CPU могут быть вложенными, например:
 
 	profile("A");profile("B");profileEnd("B")profileEnd("A")
 
-The calls to stop and start profiling do not need be properly nested. For
-example, the following works the same as the previous example:
-
-Комманды остановки и запуска профилирования не обязательно должны быть корректно
-вложены друг в друга. Например, этот пример будет работать так же, как и предидущий:
+Комманды остановки и запуска профилирования не обязательно должны быть корректно вложены друг в друга. Например, этот пример будет работать так же, как и предыдущий:
 
 	profile("A");profile("B"); profileEnd("A");profileEnd("B");
-
-
-
-
 
 
 [1]: https://developers.google.com/chrome-developer-tools/docs/console-api
