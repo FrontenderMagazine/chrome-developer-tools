@@ -203,7 +203,7 @@ insert values into the output string.
 
 	console.log("%s has %d points", "Sam", "100");
 
-This would result in "Sam has 100 points" being logged to the console. 
+This would result in "Sam has 100 points" being logged to the console.
 
 The following table lists the supported format specifiers and the formatting
 they apply:
@@ -250,7 +250,7 @@ write to the Console with [console.log()][36] or related methods.
 
 ### Measuring how long something takes ###
 
-You can use the [console.time()][38] and [console.timeEnd()][39] methods to measure how long a function or operation in your code takes to complete. You call `console.time()` at the point in your code where you want to start the timer and `console.timeEnd()` to stop the timer. The elapsed time between these two calls is displayed in the console. 
+You can use the [console.time()][38] and [console.timeEnd()][39] methods to measure how long a function or operation in your code takes to complete. You call `console.time()` at the point in your code where you want to start the timer and `console.timeEnd()` to stop the timer. The elapsed time between these two calls is displayed in the console.
 
 	console.time("Array initialize");var array= new Array(1000000);for (var i = array.length - 1; i >= 0; i--) {    array[i] = new Object();};console.timeEnd("Array initialize");
 
