@@ -121,7 +121,7 @@ DevTools. Одно из главных назначений API — [логир�
 	var a = document.createElement('p');
 	a.appendChild(document.createTextNode('foo'));
 	a.appendChild(document.createTextNode('bar'));
-	console.log("Node count: " + a.childNodes.length);
+	console.log("Количество дочерних элементов: " + a.childNodes.length);
 
 ![Console log output][17]
 
@@ -129,7 +129,9 @@ DevTools. Одно из главных назначений API — [логир�
 показано выше), вы можете ввести каждый параметр друг за другом через запятую и
 их значения будут выведены в одну строку разделённые пробелом.
 
-	console.log("Node count:", a.childNodes.length, "and the current time is:", Date.now());
+	console.log("Количество дочерних элементов: ", a.childNodes.length,  "; текущее время: ", Date.now() );
+	
+
 
 ![Console log output][18]
 
@@ -140,7 +142,7 @@ DevTools. Одно из главных назначений API — [логир�
 цвета.
 
 	function connectToServer() {
-	    console.error("Error: %s (%i)", "Server is  not responding",500);
+		console.error("Ошибка: %s (%i)", "Сервер не отвечает",500);
 	}
 	connectToServer();
 
@@ -149,7 +151,7 @@ DevTools. Одно из главных назначений API — [логир�
 Метод [console.warn()][21] выводит жёлтую иконку рядом с текстом сообщения.
 
 	if(a.childNodes.length < 3 ) {
-	    console.warn('Warning! Too few nodes (%d)', a.childNodes.length);
+	    console.warn('Внимание! Слишком мало дочерних элементов (%d)', a.childNodes.length);
 	}
 
 ![Example of console.warn()][22]
@@ -162,7 +164,7 @@ DevTools. Одно из главных назначений API — [логир�
 примере сообщение об ошибке появится только, если количество дочерних элементов
 DOM-элемента `list` больше пятисот.
 
-	console.assert(list.childNodes.length < 500, "Node count is > 500");
+	console.assert(list.childNodes.length < 500, "Количество дочерних элементов > 500");
 
 ![Example of console.assert()][24]
 
@@ -193,11 +195,11 @@ DOM-элемента `list` больше пятисот.
 [console.group()][26] и [groupEnd()][27].
 
 	var user = "jsmith", authenticated = false;
-	console.group("Authentication phase");
-	console.log("Authenticating user '%s'", user);
-	// authentication code here...
+	console.group("Этап аутентификации");
+	console.log("Аутентификация пользователя '%s'", user);
+	// Код авторизации…
 	if (!authenticated) {
-	    console.log("User '%s' not authenticated.", user)
+	    console.log("Пользователь '%s' не был аутентифицирован.", user)
 	}
 	console.groupEnd();
 
@@ -208,21 +210,21 @@ DOM-элемента `list` больше пятисот.
 аутентифицирован, то создаётся вложенная группа для этапа авторизации.
 
 	var user = "jsmith", authenticated = true, authorized = true;
-	// Top-level group
-	console.group("Authenticating user '%s'", user);
+	// Внешняя группа
+	console.log("Аутентификация пользователя '%s'", user);
 	if (authenticated) {
-	    console.log("User '%s' was authenticated", user);
-	    // Start nested group
-	    console.group("Authorizing user '%s'", user);
+	    console.log("Пользователь '%s' был аутентифицирован.", user)
+	    // Начало вложенной группы
+	    console.log("Авторизация пользователя '%s'", user);
 	    if (authorized) {
-	        console.log("User '%s' was authorized.", user);
+	        console.log("Пользователь '%s' был авторизован.", user)
 	    }
-	    // End nested group
+	    // Конец вложенной группы
 	    console.groupEnd();
 	}
-	// End top-level group
+	// Конец внешней группы
 	console.groupEnd();
-	console.log("A group-less log trace.");
+	console.log("Обычный вывод без групп.");
 
 ![Nested logging group example][29]
 
