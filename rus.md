@@ -211,11 +211,11 @@ DOM-элемента `list` больше пятисот.
 
 	var user = "jsmith", authenticated = true, authorized = true;
 	// Внешняя группа
-	console.log("Аутентификация пользователя '%s'", user);
+	console.group("Аутентификация пользователя '%s'", user);
 	if (authenticated) {
 	    console.log("Пользователь '%s' был аутентифицирован.", user)
 	    // Начало вложенной группы
-	    console.log("Авторизация пользователя '%s'", user);
+	    console.group("Авторизация пользователя '%s'", user);
 	    if (authorized) {
 	        console.log("Пользователь '%s' был авторизован.", user)
 	    }
@@ -231,9 +231,9 @@ DOM-элемента `list` больше пятисот.
 Для создания изначально свёрнутой группы используйте [console.groupCollapsed()][30]
 вместо `console.group()`:
 
-	console.groupCollapsed("Authenticating user '%s'", user);
+	console.groupCollapsed("Аутентификация пользователя '%s'", user);
 	if (authenticated) {
-	  //…
+		//…
 	}
 
 ![Initially collapsed group][31]
