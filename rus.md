@@ -354,7 +354,7 @@ DOM-элемента `list` больше пятисот.
 Можно использовать модификатор `%c`, чтобы применить СSS-правила, к любой
 строке, выводимой с помощью [console.log()][36] или похожих методов.
 
-	console.log("%cThis will be formatted with large, blue text", "color: blue; font-size: x-large");
+	console.log("%cЭта надпись будет отформатирована крупным, голубым текстом", "color: blue; font-size: x-large");
 
 ![Стилизация вывода консоли с помощью CSS][37]
 
@@ -367,12 +367,12 @@ DOM-элемента `list` больше пятисот.
 остановки. Время прошедшее между вызовами этих функций будет выведено в
 консоль.
 
-	console.time("Array initialize");
+	console.time("Инициализация массива");
 	var array= new Array(1000000);
 	for (var i = array.length - 1; i >= 0; i--) {
 	    array[i] = new Object();
 	};
-	console.timeEnd("Array initialize");
+	console.timeEnd("Инициализация массива");
 
 ![Example of using console.time() and timeEnd()][40]
 
