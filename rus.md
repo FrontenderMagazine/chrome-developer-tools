@@ -62,7 +62,7 @@
 
 Для того, чтобы вызвать или скрыть минимизированную версию консоли в других
 панелях, нажмите клавишу **Esc** или кликните на иконку **Show/Hide Console** в
-нижнем левом углу DevTools. Скриншот показывает минимизированную консоль в
+нижнем левом углу DevTools. Скриншот показывает разделённый вариант консоли в
 панели Elements.
 
 ![Console split-view][10]
@@ -193,7 +193,7 @@ DOM-элемента `list` больше пятисот.
 Вы можете визуально группировать вывод в консоли с помощью команд
 [console.group()][26] и [groupEnd()][27].
 
-	var user = "jsmith", authenticated = false;
+	var user = "Вася Пупкин", authenticated = false;
 	console.group("Этап аутентификации");
 	console.log("Аутентификация пользователя '%s'", user);
 	// Код авторизации…
@@ -208,7 +208,7 @@ DOM-элемента `list` больше пятисот.
 логов создаётся для этапа аутентификации в процессе логина. Если пользователь
 аутентифицирован, то создаётся вложенная группа для этапа авторизации.
 
-	var user = "jsmith", authenticated = true, authorized = true;
+	var user = "Вася Пупкин", authenticated = true, authorized = true;
 	// Внешняя группа
 	console.group("Аутентификация пользователя '%s'", user);
 	if (authenticated) {
@@ -397,10 +397,10 @@ DOM-элемента `list` больше пятисот.
 result")`
 
 	function AddResult(name, result) {
-	  console.timeStamp("Adding result");
-	  var text = name + ': ' + result;
-	  var results = document.getElementById("results");
-	  results.innerHTML += (text + "<br>");
+		console.timeStamp("Добавление результатов");
+		var text = name + ': ' + result;
+		var results = document.getElementById("results");
+		results.innerHTML += (text + "<br>");
 	}
 
 Как проиллюстрировано в скриншоте, вызов `timeStamp()` отмечен в следующих
@@ -519,8 +519,6 @@ DOM-элемент в панели Elements и JavaScript-объект в пан
 Следующий скриншот показывает значения этих свойств после выбора трех различных
 элементов подряд из панели Elements:
 
-![Recently selected elements][61]
-
 ![Недавно выбранные элементы][61]
 
 > Внимание: В любом случае вы можете кликнуть правой кнопкой мыши или кликнуть с
@@ -536,8 +534,6 @@ DOM-элемент в панели Elements и JavaScript-объект в пан
 "resize" объекта окна.
 
 	monitorEvents(window, "resize");
-
-![Monitoring window resize events][63]
 
 ![Отслеживание события изменения размеров окна][63]
 
@@ -604,64 +600,68 @@ JavaScript профили CPU. По желанию можно задать пр�
 [6]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profile
 [7]: https://developers.google.com/chrome-developer-tools/docs/console-api
 [8]: https://developers.google.com/chrome-developer-tools/docs/commandline-api
-[9]: ./img/console1.png "Console panel view"
-[10]: ./img/console-split-view.png "Console split-view"
 [11]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#clear
 [12]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleclear
 [13]: https://developers.google.com/chrome-developer-tools/docs/console#consolepreferences
-[14]: ./img/console-context-menu.png "Console panel view"
 [15]: https://developers.google.com/chrome-developer-tools/docs/console#writing_to_the_console
 [16]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolelogobject_object
-[17]: ./img/log-basic.png "Console log output"
-[18]: ./img/log-multiple.png "Console log output"
 [19]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleerrorobject_object
-[20]: ./img/error-server-not-resp.png
 [21]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolewarnobject_object
-[22]: ./img/warning-too-few-nodes.png "Example of console.warn()"
 [23]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoleassertexpression_object
-[24]: ./img/assert-failed.png "Example of console.assert()"
-[25]: ./img/filter-errors.png "Only show console.error() output"
 [26]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupobject_object
 [27]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupend
+[30]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupcollapsed
+[35]: https://developers.google.com/chrome-developer-tools/docs/console#string_substitution_and_formatting
+[36]: https://developers.google.com/chrome-developer-tools/docs/console#writingtotheconsole
+[38]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimelabel
+[39]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel
+[41]: https://developers.google.com/chrome-developer-tools/docs/timeline
+[42]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimestamplabel
+[44]: https://developers.google.com/chrome-developer-tools/docs/console-api#debugger
+[46]: https://developers.google.com/chrome-developer-tools/docs/commandline-api
+[49]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector
+[50]: http://docs.webplatform.org/wiki/css/selectors_api/querySelector
+[52]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector_1
+[53]: http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll
+[55]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#xpath
+[56]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#inspectobject
+[57]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#_
+[59]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4
+[60]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4
+[62]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events
+[64]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events
+[65]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profilename
+[66]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profileendname
+
+
+
+
+[9]: ./img/console1.png "Console panel view"
+[10]: ./img/console-split-view.png "Console split-view"
+[14]: ./img/console-context-menu.png "Console panel view"
+[17]: ./img/log-basic.png "Console log output"
+[18]: ./img/log-multiple.png "Console log output"
+[20]: ./img/error-server-not-resp.png
+[22]: ./img/warning-too-few-nodes.png "Example of console.warn()"
+[24]: ./img/assert-failed.png "Example of console.assert()"
+[25]: ./img/filter-errors.png "Only show console.error() output"
 [28]: ./img/group.png "Logging group example"
 [29]: ./img/nestedgroup.png "Nested logging group example"
-[30]: https://developers.google.com/chrome-developer-tools/docs/console-api#consolegroupcollapsed
 [31]: ./img/groupcollapsed.png "Initially collapsed group"
 [32]: ./img/format-substitution.png "Using format specifiers"
 [33]: ./img/log-element.png
 [34]: ./img/dir-element.png
-[35]: https://developers.google.com/chrome-developer-tools/docs/console#string_substitution_and_formatting
-[36]: https://developers.google.com/chrome-developer-tools/docs/console#writingtotheconsole
 [37]: ./img/format-string.png "Стилизация вывода консоли с помощью CSS"
-[38]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimelabel
-[39]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimeendlabel
 [40]: ./img/time-duration.png "Example of using console.time() and timeEnd()"
-[41]: https://developers.google.com/chrome-developer-tools/docs/timeline
-[42]: https://developers.google.com/chrome-developer-tools/docs/console-api#consoletimestamplabel
 [43]: ./img/timestamp2.png "Timeline showing custom timestamp"
-[44]: https://developers.google.com/chrome-developer-tools/docs/console-api#debugger
 [45]: ./img/debugger.png "Example of using debugger command"
-[46]: https://developers.google.com/chrome-developer-tools/docs/commandline-api
 [47]: ./img/evaluate-expressions.png
 [48]: ./img/multiline-expression.png
-[49]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector
-[50]: http://docs.webplatform.org/wiki/css/selectors_api/querySelector
 [51]: ./img/select-login-btn.png
-[52]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#selector_1
-[53]: http://docs.webplatform.org/wiki/css/selectors_api/querySelectorAll
 [54]: ./img/select-multiple-login.png
-[55]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#xpath
-[56]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#inspectobject
-[57]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#_
 [58]: ./img/inspect2.png
-[59]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4
-[60]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#0_-_4
 [61]: ./img/recent-selection.png "Recently selected elements"
-[62]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events
 [63]: ./img/monitor-resize.png "Monitoring window resize events"
-[64]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#monitoreventsobject_events
-[65]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profilename
-[66]: https://developers.google.com/chrome-developer-tools/docs/commandline-api#profileendname
 [67]: ./img/profile-console.png
 [68]: ./img/profile-panel.png
 [69]: ./img/profile-console-2.png
